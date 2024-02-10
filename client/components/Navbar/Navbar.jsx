@@ -4,12 +4,13 @@ import Link from "next/link";
 import {MdNotifications} from 'react-icons/md';
 import {BsSearch} from "react-icons/bs";
 import {CgMenuLeft,CgMenuRight} from "react-icons/cg";
+import Image from 'next/image';
 
 //INTERNAL IMports
 import Style from "./Navbar.module.css";
 import {Discover,HelpCenter,Notification,Profile,Sidebar} from "./index";
 import {Button} from "../componentindex";
-import {images} from "../../img"; 
+import images from "../../img"; 
 
 
 const Navbar = () => {
@@ -82,14 +83,14 @@ const Navbar = () => {
        <div className = {Style.navbar}>
         <div className= {Style.navbar_container}>
             <div className= {Style.navbar_container_left}>
-                {/* <div className= {Style.logo}>
-                    <Image 
-                        src = {images.logo} 
+                <div className= {Style.logo}>
+                    <Image
+                        src = {images.logo}
                         alt ="NFT MARKETPLACE" 
                         width = {100}
                         height = {100}
-                    />
-                </div> */}
+                    ></Image>
+                </div>
                 <div className= {Style.navbar_container_left_box_input}>
                     <div className = {Style.navbar_container_left_box_input_box}>
                         <input type='text' placeholder='Search NFT'/>
@@ -101,9 +102,8 @@ const Navbar = () => {
 
             
             <div className= {Style.navbar_container_right}>
-                {/* DISCOVER MENU */}
                 <div className= {Style.navbar_container_right_discover}>
-                    
+                    {/* DISCOVER MENU */}
                     <p onClick={(e)=>openMenu(e) }>Discover</p>
                     {Discover && (
                         <div cLassName={Style.navbar_container_right_discover_box}>
@@ -124,6 +124,7 @@ const Navbar = () => {
                     <MdNotifications className={Style.notify} onClick={()=>openNotification()} />
                     {notification && <Notification/>}
                 </div>
+
                 {/* CREATE BUTTON SECTION */}
                 <div className={Style.navbar_container_right_button}>
                     <Button btnText = "Create"/>
@@ -131,9 +132,8 @@ const Navbar = () => {
                 {/* USER PROFILE */}
                 <div className={Style.navbar_container_right_profile_box}>
                     <div className={Style.navbar_container_right_profile}>
-                        
-                        <img
-                        src= {images.logo}
+                        <Image 
+                        src={images.user1}
                         alt ="Profile" 
                         width={40} 
                         height={40} 
@@ -143,6 +143,7 @@ const Navbar = () => {
                         {profile && <Profile/>}
                     </div>
                 </div>
+
                 {/* MENU BUTTON */}
                 <div className={Style.navbar_container_right_menuBtn}>
                     <CgMenuRight className={Style.menuIcon}
